@@ -1,0 +1,60 @@
+body {
+    background: #eee;
+  }
+  
+  .name {
+    color: #e83e8c;
+  }
+  
+  .work {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
+  .about span {
+    font-size: 13px;
+  }
+  
+  .v-profile {
+    color: #e83e8c;
+    cursor: pointer;
+  }
+  .v-profile:hover {
+    color:black;
+    cursor: pointer;
+  }
+  .box {
+    -webkit-box-shadow: 13px 12px 5px -10px rgba(196,194,196,0.72);
+    -moz-box-shadow: 13px 12px 5px -10px rgba(196,194,196,0.72);
+    box-shadow: 13px 12px 5px -10px rgba(196,194,196,0.72);
+  }
+  
+  .rounded-circle{
+    filter: drop-shadow(1px 1px 5px #4d4f52 );
+  }
+  .col-md-3 {
+    margin-top: 10px;
+  }
+  // Size can also be negative; see how it's smaller than the element
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+$colors: (
+//   fill: #a972cb,
+//   pulse: #ef6eae, 
+//   close: #ff7f82, 
+  raise: rgba(36, 33, 33, 0.226), 
+  up: white, 
+//   slide: #8fc866, 
+//   offset: #19bc8b
+);
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+  // Loop through the map and set CSS custom properties using Sass variables
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 4deg)};
+  }
+}

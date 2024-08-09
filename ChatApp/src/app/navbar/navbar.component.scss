@@ -1,0 +1,80 @@
+.nav-link{
+ cursor: pointer;
+ color: rgba(255, 255, 255, 0.616) !important;
+}
+.nav-link:hover{
+    cursor: pointer;
+    color: rgb(255, 255, 255) !important;
+   }
+   .dropdown-menu{
+    margin-right: 50px !important;
+   }
+   .dropdown-item{
+    cursor: pointer;
+   }
+   .active{
+    color: white !important;
+    position: relative; /* Required for absolute positioning of the ::before pseudo-element */
+   }
+  .active::before {
+   content: ''; /* Empty content for the dot */
+   position: absolute;
+   left: -3px;
+   top: 50%; /* Vertically center the dot */
+   transform: translateY(-50%); /* Adjust vertical alignment */
+   width: 8px; /* Width of the dot */
+   height: 8px; /* Height of the dot */
+   background-color: red; /* Color of the dot */
+   border-radius: 50%; /* Make the dot circular */
+   }
+   @media(max-width:798px){
+    .active::before {
+        content: ''; /* Empty content for the dot */
+        position: absolute;
+        left: -12px;
+        top: 50%; /* Vertically center the dot */
+        transform: translateY(-50%); /* Adjust vertical alignment */
+        width: 8px; /* Width of the dot */
+        height: 8px; /* Height of the dot */
+        background-color: red; /* Color of the dot */
+        border-radius: 50%; /* Make the dot circular */
+        }
+   }
+   .container-fluid{
+    margin:0 20px !important;
+   }
+   //edit imeg icons
+   .imgesicon{
+    width: 25px;
+    border-radius: 25px;
+    border: 1px solid white;
+   }
+   .dewobimg{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    border: 1px solid red;
+   }
+// Size can also be negative; see how it's smaller than the element
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+$colors: (
+//   fill: #a972cb,
+//   pulse: #ef6eae, 
+//   close: #ff7f82, 
+  raise: red, 
+  up: white, 
+//   slide: #8fc866, 
+//   offset: #19bc8b
+);
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+  // Loop through the map and set CSS custom properties using Sass variables
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 4deg)};
+  }
+}

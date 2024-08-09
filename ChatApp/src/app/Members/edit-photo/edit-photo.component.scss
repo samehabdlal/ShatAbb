@@ -1,0 +1,16 @@
+.nv-file-over{
+    border: dotted 3px red;
+
+}
+.cards{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+}
+@media(max-width:789px){
+    .grids{
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+    }
+}

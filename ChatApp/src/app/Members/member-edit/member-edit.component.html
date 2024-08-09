@@ -1,0 +1,104 @@
+@if (member) {
+    
+  @if (member) {
+    <button class="btn btn-primary mb-3" routerLink="/members">
+      <i class="fa-solid fa-arrow-left"></i>back to members
+    </button>
+    <div class="row mb-4 p-0"  data-aos="zoom-in">
+      <div class="col-md-4">
+        <h1>your profile</h1>
+      </div>
+      <div class="col-md-8">
+     @if (editform.dirty) {
+        <div class="alert alert-info pb-0 float-end">
+            <p>
+              <strong>informations</strong>
+              you have made changes. any unsaved changes will be lost
+            </p>
+          </div>
+     }
+      </div>
+      <div class="card col-mb-12 m-0 p-0">
+        <div class="row g-0">
+          <div class="col-md-4 p-3">
+            <div class="col-md-12 imges">
+              <img
+                [src]="member.photoUrl"
+                class="img-fluid rounded h-100 w-100"
+                [alt]="member.userName"
+              />
+            </div>
+            <div class="col-md-12">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fa-regular fa-user"></i>{{ member.userName }}</h5>
+                <p class="card-text">{{ member.introduction }}</p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <strong>Age</strong>_{{ member.age }}
+                  </li>
+                  <li class="list-group-item">
+                    <i class="fa-solid fa-location-dot"></i>_{{
+                      member.country
+                    }}
+                    _{{ member.city }}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>lastActive_</strong> {{ member.lastActive }}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Member since_</strong>{{ member.created }}
+                  </li>
+                </ul>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-8 p-3">
+            <div>
+              <tabset class="member-taps">
+                <tab heading="About {{ member.knownAs }}">
+                  <form  id="editform" #editform="ngForm" (ngSubmit)="Oneditform(editform)">
+                    <!-- descrption -->
+                    <h4 class="mt-2">descrption</h4>
+                    <textarea required [(ngModel)]="member.introduction" 
+                    rows="3"
+                    name="introduction"
+                    class="form-control" ></textarea>
+                           <!-- looking foo -->
+                    <h4 class="mt-2">lookingFor</h4>
+                    <textarea required [(ngModel)]="member.lookingFor" 
+                    rows="6"
+                    name="lookingFor"
+                    class="form-control" ></textarea>
+                           <!-- interests -->
+                    <h4 class="mt-2">interests</h4>
+                    <textarea required [(ngModel)]="member.interests" 
+                    rows="3"
+                    name="interests"
+                    class="form-control" ></textarea>
+                    <h3 class="form-label mt-2"><i class="fa-solid fa-location-dot"></i>_
+                         locatiob details</h3>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                           <!-- city -->
+                        <label class="form-label" for="city">city</label>
+                        <span>::</span>
+                        <input required class="form-control" type="text" name="city" [(ngModel)]="member.city" id="city">
+                           <!-- country -->
+                        <label class="form-label" for="city">country</label>
+                        <span>::</span>
+                        <input required class="form-control" type="text" name="country" [(ngModel)]="member.country" id="city">
+                    </div>
+                  </form>
+                </tab>
+                <tab heading="Edit photo"> <app-edit-photo (memberchange)="OnmemberChange($event)" [member]="member"></app-edit-photo> </tab>
+              </tabset>
+            </div>
+          </div>
+        </div>
+        <div class="m-3">
+        <button class="btn btn-success w-100" [disabled]="!editform.dirty" form="editform">Save changes</button>
+        </div>
+      </div>
+    </div>
+    }
+  }

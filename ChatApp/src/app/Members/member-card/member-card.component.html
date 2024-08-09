@@ -1,0 +1,14 @@
+<div class="container raise mt-3">
+  <div class="row">
+      <div class="col-md-12 raise"  data-aos="fade-up">
+          <div class="bg-white p-3 text-center rounded box"><img class="img-responsive rounded-circle" [src]="member().photoUrl" [alt]="member().knownAs" width="90">
+             <h5 class="mt-3 name"> <i class="fa-solid fa-user"></i>_{{member().userName}}</h5><span class="work d-block"><i class="fa-solid fa-location-dot" style="color: #1e04dc;"></i>_{{member().city}}</span>
+              <div class="hmembers d-flex justify-content-center gap-3" data-aos="flip-up">
+                <button (click)="navgateroute(member().userName)"  class="btn btn-primary rounded-circle"><i class="fa-solid fa-user"></i></button>
+                <button class="btn btn-primary rounded-circle"><i class="fa-solid fa-heart"></i></button>
+                <button class="btn btn-primary rounded-circle"><i class="fa-solid fa-envelope"></i></button>
+              </div> 
+             <div class="mt-4 about"> {{member().interests}}</div>
+          </div>
+      </div>
+  </div>

@@ -1,0 +1,58 @@
+@if (member) {
+    <button class="btn btn-primary mb-3" routerLink="/members" ><i class="fa-solid fa-arrow-left"></i>back to members</button>
+    <div class="row mb-4 p-0"  >
+        <div class="card col-mb-12  m-0 p-0 " data-aos="zoom-in" >
+            <div class="row g-0">
+            <div class="col-md-6 p-3">
+                <div class="col-md-12  imges"> 
+                    <img [src]="member.photoUrl" class="img-fluid rounded-start h-100 w-100 " [alt]="member.userName">
+                  </div>
+                  <div class="col-md-12">
+                    <div class="card-body">
+                      <h5 class="card-title">{{member.userName}}</h5>
+                      <p class="card-text">{{member.introduction}}</p>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Age</strong>_{{member.age}}</li>
+                        <li class="list-group-item"><i class="fa-solid fa-location-dot"></i>_{{member.country}} _{{member.city}} </li>
+                        <li class="list-group-item"><strong>lastActive_</strong> {{member.lastActive}}</li>
+                        <li class="list-group-item"><strong>Member since_</strong>{{member.created}}</li>
+                      </ul>
+                    </div>
+                    <div class="card-footer">
+                           <div class="btn-groub d-flex gap-2">
+                            <button class="btn btn-primary w-100">Like   <i class="fa-regular fa-thumbs-up"></i></button>
+                            <button class="btn btn-success w-100">message  <i class="fa-regular fa-message"></i></button>
+                           </div>          
+                    </div>  
+                </div>
+            </div>
+            <div class="col-md-6 p-3">
+                <div>
+                    <tabset class="member-taps">
+                      <tab heading="About {{member.knownAs}}">
+                       <h4>descrption</h4>
+                       <p>{{member.introduction}}</p>
+                       <h4>looking For</h4>
+                       <p>{{member.lookingFor}}</p>
+                    </tab>
+                    <tab heading="interests">
+                        <h4>interests</h4>
+                       <p>{{member.interests}}</p>
+                     </tab>
+                     <tab heading="Photos" #phottap="tab">
+                        @if (phottap.active) {
+                            <gallery gallerize class="gallery"
+                            [itemAutosize]="true"
+                            [items]="imges"></gallery>
+                        }
+                     </tab>
+                     <tab heading="Messages">
+                        <h4>d all assests</h4>
+                     </tab>
+                    </tabset>
+                  </div>
+            </div>
+            </div>
+          </div>
+    </div>
+}

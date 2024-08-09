@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    @if (!regstierMode) {
+        <div style="text-align: center;">
+            <h1>find your match</h1>
+            <p class="lead">come on in vew youer matches... all you need to do is sign up</p>
+            <div class="text-center" style="text-align: center;">
+              <button class="btn btn-primary btn-lg me-2" (click)="regstertoogle()">regster</button>
+              <button class="btn btn-info btn-lg me-2">learm more..</button>
+            </div> 
+           </div>
+    }
+     @else {
+        <div class="container">
+            <div class="row">
+           <app-regster 
+           (cancleregsyter)="OnCansleRegsterMode($event)">
+          </app-regster>
+            </div>
+         </div>
+     }
+</div>
